@@ -2,412 +2,639 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Personal Portfolio | Computer Science</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mary Atieno Odhiambo | Portfolio</title>
 
 <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
 :root {
-    --bg: #f4f4f9;
+    --primary: #2563eb;
+    --dark: #101b3b;
+    --light: #f5f8ff;
     --text: #334155;
     --muted: #64748b;
-    --card: #ffffff;
-    --border: #e2e8f0;
-    --brand: #172554;
-    --accent: #3b82f6;
-    --heading: #172554;
-    --shadow: 0 4px 14px rgba(23,37,84,0.08);
+    --white: #ffffff;
 }
-
-* { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
 
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    margin: 0;
-    background: var(--bg);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--light);
     color: var(--text);
     line-height: 1.7;
-    text-align: center;
 }
+
+/* NAVIGATION */
 
 nav {
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
     position: sticky;
     top: 0;
-    z-index: 10;
-    background: var(--brand);
-    padding: 14px;
+    z-index: 100;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+nav ul {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 22px;
+    list-style: none;
+    gap: 28px;
 }
 
-nav a {
-    color: white;
+nav ul a {
     text-decoration: none;
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 14px;
 }
 
-nav a:hover { color: #93c5fd; }
+nav ul a:hover {
+    color: var(--primary);
+}
 
-header {
-    background: linear-gradient(135deg,#172554,#1e3a8a);
+/* HERO SECTION */
+
+.hero {
+    min-height: 570px;
+    background: linear-gradient(120deg, #101b3b, #1e40af);
+    display: flex;
+    align-items: center;
+    padding: 80px 10%;
     color: white;
-    padding: 90px 20px 100px;
 }
 
-.badge {
+.hero-content {
+    max-width: 750px;
+}
+
+.hero-tag {
     display: inline-block;
     background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.25);
-    padding: 6px 16px;
-    border-radius: 999px;
-    margin-bottom: 22px;
+    padding: 8px 18px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    color: #bfdbfe;
 }
 
-header h1 {
-    font-size: clamp(2.2rem,6vw,3.6rem);
-    margin: 0 0 16px;
+.hero h1 {
+    font-size: clamp(36px, 6vw, 60px);
+    line-height: 1.2;
+    margin-bottom: 20px;
 }
 
-header p {
-    max-width: 650px;
-    margin: auto auto 30px;
+.hero h1 span {
+    color: #60a5fa;
+}
+
+.hero p {
+    font-size: 17px;
     color: #dbeafe;
-    font-size: 1.1rem;
+    max-width: 600px;
+    margin-bottom: 30px;
 }
 
-.btn {
+.button {
     display: inline-block;
-    padding: 12px 28px;
+    padding: 13px 25px;
     border-radius: 8px;
     text-decoration: none;
-    font-weight: 600;
-    margin: 6px;
+    font-weight: bold;
+    margin: 5px;
+    transition: 0.3s;
 }
 
-.btn-primary {
-    background: var(--accent);
+.button:hover {
+    transform: translateY(-4px);
+}
+
+.primary-btn {
+    background: #3b82f6;
     color: white;
 }
 
-.btn-outline {
-    border: 2px solid white;
+.secondary-btn {
+    border: 1px solid white;
     color: white;
 }
 
-section { padding: 70px 20px; }
+/* GENERAL SECTIONS */
 
-.wrap {
-    max-width: 1000px;
-    margin: auto;
+section {
+    padding: 85px 9%;
 }
 
-h2 {
-    color: var(--heading);
-    font-size: 2rem;
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
 }
 
-h2::after {
-    content: "";
-    display: block;
-    width: 56px;
-    height: 4px;
-    background: var(--accent);
-    margin: 12px auto;
-    border-radius: 4px;
+.section-title h2 {
+    font-size: 32px;
+    color: var(--dark);
+    margin-bottom: 10px;
 }
 
-.lead {
-    max-width: 650px;
-    margin: 18px auto;
+.section-title p {
     color: var(--muted);
 }
 
-.overview-text {
-    max-width: 750px;
-    margin: 25px auto;
+.line {
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 12px auto;
+    border-radius: 10px;
 }
 
-.stats {
+/* OVERVIEW */
+
+.about {
+    background: white;
+}
+
+.about-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-    gap: 20px;
-    margin-top: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
 }
 
-.stat, .project {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 25px;
-    box-shadow: var(--shadow);
+.about-text h3 {
+    font-size: 25px;
+    color: var(--dark);
+    margin-bottom: 18px;
 }
 
-.stat strong {
-    display: block;
-    font-size: 2rem;
-    color: var(--heading);
+.about-text p {
+    color: var(--muted);
+    margin-bottom: 15px;
 }
 
-.stat span { color: var(--muted); }
+.about-card {
+    background: linear-gradient(145deg,#eff6ff,#dbeafe);
+    padding: 45px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #bfdbfe;
+}
 
-.grid {
+.about-card .symbol {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.about-card h3 {
+    color: var(--dark);
+    font-size: 23px;
+}
+
+.about-card p {
+    color: var(--muted);
+    margin-top: 10px;
+}
+
+/* FEATURES */
+
+.features {
+    background: #f5f8ff;
+}
+
+.feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    gap: 24px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+    gap: 25px;
 }
 
-.icon {
-    font-size: 2rem;
+.feature-card {
+    background: white;
+    padding: 32px 25px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border: 1px solid #e5eaf5;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(37,99,235,0.12);
+}
+
+.feature-icon {
+    width: 58px;
+    height: 58px;
+    background: #eff6ff;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    color: var(--dark);
     margin-bottom: 12px;
 }
 
-.project h3 { color: var(--heading); }
-
-.project p { color: var(--muted); }
-
-footer {
-    background: var(--brand);
-    color: white;
-    padding: 30px;
+.feature-card p {
+    color: var(--muted);
+    font-size: 14px;
 }
 
-@media(max-width:600px) {
-    header { padding: 60px 20px; }
-    section { padding: 50px 18px; }
+/* SKILLS */
+
+.skills {
+    background: white;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill {
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 14px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    border: 1px solid #dbeafe;
+}
+
+/* PROJECTS */
+
+.projects {
+    background: #f5f8ff;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #e2e8f0;
+}
+
+.project-card h3 {
+    color: var(--dark);
+    margin-bottom: 12px;
+}
+
+.project-card p {
+    color: var(--muted);
+}
+
+/* FUTURE GOALS */
+
+.goals {
+    background: white;
+}
+
+.goal-box {
+    max-width: 750px;
+    margin: auto;
+    background: #eff6ff;
+    border-left: 5px solid var(--primary);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.goal-box p {
+    color: var(--muted);
+}
+
+/* FOOTER */
+
+footer {
+    background: #101b3b;
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+footer p {
+    color: #bfdbfe;
+    margin: 5px;
+}
+
+@media(max-width:750px) {
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav ul {
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 75px 7%;
+        min-height: 500px;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 65px 7%;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
+
 <nav>
-    <a href="#top">Home</a>
-    <a href="#overview">Overview</a>
-    <a href="#features">Features</a>
-    <a href="#structure">Structure</a>
-    <a href="#future">Future</a>
+    <div class="logo">Mary.dev</div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#overview">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+    </ul>
 </nav>
 
-<!-- TITLE -->
-<header id="top">
-    <span class="badge">Computer Science Student | Portfolio 2026</span>
+<!-- TITLE / HERO -->
 
-    <h1>My Personal Portfolio</h1>
+<header class="hero" id="home">
+    <div class="hero-content">
 
-    <p>
-        Welcome to my personal portfolio! I am a Computer Science student
-        passionate about technology, programming and problem-solving.
-        This platform showcases my skills, projects and continuous
-        learning journey in the world of computing.
-    </p>
+        <div class="hero-tag">
+            Computer Science Student | 2026
+        </div>
 
-    <a class="btn btn-primary" href="#features">Explore My Skills</a>
-    <a class="btn btn-outline" href="#overview">About My Portfolio</a>
+        <h1>
+            Hello, I'm <span>Mary Atieno Odhiambo</span>
+        </h1>
+
+        <p>
+            Welcome to my personal portfolio. I am passionate
+            about technology, programming, creativity and
+            solving problems through innovative digital solutions.
+            Explore my skills, projects and learning journey.
+        </p>
+
+        <a href="#projects" class="button primary-btn">
+            Explore My Work
+        </a>
+
+        <a href="#overview" class="button secondary-btn">
+            Discover More
+        </a>
+
+    </div>
 </header>
 
 <!-- OVERVIEW -->
-<section id="overview">
-<div class="wrap">
 
-    <h2>Portfolio Overview</h2>
+<section class="about" id="overview">
 
-    <p class="lead">
-        A digital platform presenting my academic journey,
-        technical abilities and achievements in Computer Science.
-    </p>
-
-    <p class="overview-text">
-        This personal portfolio has been developed to introduce
-        my background as a Computer Science student and provide
-        an overview of my interests, technical skills and
-        programming projects. It serves as a central platform
-        where my academic work and practical experiences can
-        be presented in an organised manner.
-    </p>
-
-    <p class="overview-text">
-        The portfolio is designed using HTML and CSS to provide
-        a clean, attractive and user-friendly experience.
-        It demonstrates my understanding of web development,
-        website structure and responsive design while providing
-        room to showcase new projects and skills as I continue
-        developing my knowledge in technology.
-    </p>
-
-    <div class="stats">
-        <div class="stat">
-            <strong>01</strong>
-            <span>Personal Portfolio</span>
-        </div>
-
-        <div class="stat">
-            <strong>06</strong>
-            <span>Core Features</span>
-        </div>
-
-        <div class="stat">
-            <strong>03</strong>
-            <span>Main Technologies</span>
-        </div>
-
-        <div class="stat">
-            <strong>∞</strong>
-            <span>Learning Opportunities</span>
-        </div>
+    <div class="section-title">
+        <h2>About Me</h2>
+        <div class="line"></div>
+        <p>Getting to know my academic and professional journey</p>
     </div>
 
-</div>
+    <div class="about-container">
+
+        <div class="about-text">
+
+            <h3>My Journey in Technology</h3>
+
+            <p>
+                I am a Bachelor of Science in Computer Science
+                student with an interest in programming,
+                software development and modern technology.
+            </p>
+
+            <p>
+                My academic journey allows me to explore
+                different areas of computing, develop
+                problem-solving abilities and gain practical
+                programming experience.
+            </p>
+
+            <p>
+                This portfolio serves as a platform to present
+                my academic achievements, technical skills,
+                personal projects and continuous development
+                as an aspiring technology professional.
+            </p>
+
+        </div>
+
+        <div class="about-card">
+            <div class="symbol">💻</div>
+            <h3>Technology & Innovation</h3>
+            <p>
+                Learning, creating and developing solutions
+                through technology.
+            </p>
+        </div>
+
+    </div>
+
 </section>
 
 <!-- FEATURES -->
-<section id="features">
-<div class="wrap">
 
-    <h2>Portfolio Features</h2>
+<section class="features" id="features">
 
-    <p class="lead">
-        Key sections and functionalities that make this
-        portfolio informative, organised and easy to use.
-    </p>
+    <div class="section-title">
+        <h2>What My Portfolio Offers</h2>
+        <div class="line"></div>
+        <p>Explore the main features of my personal portfolio</p>
+    </div>
 
-    <div class="grid">
+    <div class="feature-grid">
 
-        <div class="project">
-            <div class="icon">👩‍💻</div>
-            <h3>About Me</h3>
+        <div class="feature-card">
+            <div class="feature-icon">👩‍💻</div>
+            <h3>Personal Introduction</h3>
             <p>
-                Introduces my background, academic journey,
-                interests and passion for Computer Science.
+                Learn about my background, interests,
+                academic journey and passion for technology.
             </p>
         </div>
 
-        <div class="project">
-            <div class="icon">💻</div>
+        <div class="feature-card">
+            <div class="feature-icon">⚙️</div>
             <h3>Technical Skills</h3>
             <p>
-                Highlights my programming knowledge,
-                technical abilities and developing skills
-                in computer applications.
+                Explore my developing knowledge of
+                programming languages and computer technologies.
             </p>
         </div>
 
-        <div class="project">
-            <div class="icon">📂</div>
-            <h3>My Projects</h3>
+        <div class="feature-card">
+            <div class="feature-icon">📁</div>
+            <h3>Project Showcase</h3>
             <p>
-                Displays my academic assignments,
-                practical programming exercises and
-                personal development projects.
+                Discover my academic assignments,
+                programming exercises and practical projects.
             </p>
         </div>
 
-        <div class="project">
-            <div class="icon">🎓</div>
+        <div class="feature-card">
+            <div class="feature-icon">🎓</div>
             <h3>Education</h3>
             <p>
-                Presents my academic background and
-                learning progress as a Computer Science student.
+                Discover my educational background
+                and progress in Computer Science.
             </p>
         </div>
 
-        <div class="project">
-            <div class="icon">📱</div>
-            <h3>Responsive Design</h3>
+        <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Responsive Layout</h3>
             <p>
-                Provides a flexible layout that adapts
-                to mobile phones, tablets and desktop computers.
+                Enjoy a website designed to adapt to
+                mobile phones, tablets and computers.
             </p>
         </div>
 
-        <div class="project">
-            <div class="icon">📧</div>
-            <h3>Contact Information</h3>
+        <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Future Development</h3>
             <p>
-                Provides a section where visitors can
-                find ways to connect and communicate with me.
-            </p>
-        </div>
-
-    </div>
-</div>
-</section>
-
-<!-- STRUCTURE -->
-<section id="structure">
-<div class="wrap">
-
-    <h2>Portfolio Structure</h2>
-
-    <p class="lead">
-        Organisation of the website files and technologies.
-    </p>
-
-    <div class="project">
-        <p><strong>index.html</strong> – Contains the website content and structure.</p>
-        <p><strong>style.css</strong> – Controls the appearance, colours and layout.</p>
-        <p><strong>script.js</strong> – Can be used to add interactive functionality.</p>
-        <p><strong>assets/</strong> – Stores images and other website resources.</p>
-    </div>
-
-</div>
-</section>
-
-<!-- FUTURE -->
-<section id="future">
-<div class="wrap">
-
-    <h2>Future Improvements</h2>
-
-    <p class="lead">
-        Planned developments to improve the portfolio.
-    </p>
-
-    <div class="grid">
-
-        <div class="project">
-            <h3>1. Project Expansion</h3>
-            <p>
-                Add more programming projects and practical
-                work as my technical knowledge grows.
-            </p>
-        </div>
-
-        <div class="project">
-            <h3>2. Interactive Features</h3>
-            <p>
-                Introduce JavaScript to improve user
-                interaction and website functionality.
-            </p>
-        </div>
-
-        <div class="project">
-            <h3>3. Improved Design</h3>
-            <p>
-                Continue improving the website's appearance,
-                accessibility and responsiveness.
-            </p>
-        </div>
-
-        <div class="project">
-            <h3>4. Professional Development</h3>
-            <p>
-                Update my skills, achievements and experience
-                as I progress in my Computer Science studies.
+                Follow my growth as I develop new skills
+                and build more technology projects.
             </p>
         </div>
 
     </div>
 
-</div>
 </section>
+
+<!-- SKILLS -->
+
+<section class="skills" id="skills">
+
+    <div class="section-title">
+        <h2>My Technical Interests</h2>
+        <div class="line"></div>
+        <p>Areas I am learning and developing</p>
+    </div>
+
+    <div class="skill-list">
+        <div class="skill">HTML5</div>
+        <div class="skill">CSS3</div>
+        <div class="skill">C++</div>
+        <div class="skill">Java</div>
+        <div class="skill">Python</div>
+        <div class="skill">GitHub</div>
+        <div class="skill">Web Development</div>
+        <div class="skill">Problem Solving</div>
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="projects" id="projects">
+
+    <div class="section-title">
+        <h2>My Projects</h2>
+        <div class="line"></div>
+        <p>A collection of my learning and development work</p>
+    </div>
+
+    <div class="project-grid">
+
+        <div class="project-card">
+            <h3>Personal Portfolio</h3>
+            <p>
+                A responsive website developed using
+                HTML and CSS to showcase my profile,
+                skills and academic journey.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>Programming Exercises</h3>
+            <p>
+                Practical programming exercises that
+                demonstrate my understanding of
+                programming concepts and logic.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>Academic Projects</h3>
+            <p>
+                University coursework and practical
+                projects completed as part of my
+                Computer Science studies.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FUTURE GOALS -->
+
+<section class="goals">
+
+    <div class="section-title">
+        <h2>My Future Goals</h2>
+        <div class="line"></div>
+        <p>Building knowledge and growing through technology</p>
+    </div>
+
+    <div class="goal-box">
+        <p>
+            My goal is to continue improving my programming
+            abilities, explore software development,
+            build meaningful applications and gain practical
+            experience. I aim to use my Computer Science
+            knowledge to develop creative and useful
+            technology solutions.
+        </p>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
 
 <footer>
-    <p>© 2026 My Personal Portfolio | Computer Science Student</p>
+    <h3>Mary Atieno Odhiambo</h3>
+    <p>Computer Science Student | Aspiring Developer</p>
     <p>Learning Today, Building Tomorrow.</p>
+    <p>© 2026 My Personal Portfolio. All Rights Reserved.</p>
 </footer>
 
 </body>
 </html>
+
+   
+                
