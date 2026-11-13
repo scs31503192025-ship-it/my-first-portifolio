@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f9;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background: #172554;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        section {
+            padding: 30px 20px;
+        }
+
+        h2 {
+            color: #172554;
+        }
+
+        .project {
+            background: white;
+            padding: 20px;
+            margin: 15px auto;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        footer {
+            background: #172554;
+            color: white;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Welcome to My Portfolio</h1>
+    <p>Computer Science Student | Aspiring Developer</p>
+</header>
+
+<section>
+    <h2>About Me</h2>
+    <p>Hello! I am a Computer Science student passionate about
+    programming, technology and web development.</p>
+</section>
+
+<section>
+    <h2>My Skills</h2>
+    <p>HTML | CSS | C++ | Python | Java</p>
+</section>
+
+<section>
+    <h2>My Projects</h2>
+
+    <div class="project">
+        <h3>My First Portfolio</h3>
+        <p>A personal website showcasing my skills and projects.</p>
+    </div>
+</section>
+
+<footer>
+    <p>My Portfolio | 2026</p>
+</footer>
+
+</body>
+</html>
