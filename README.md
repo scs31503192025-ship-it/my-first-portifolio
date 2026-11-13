@@ -7,6 +7,115 @@
 <style>
     :root {
         --bg: #f4f4f9;
+        --text: #334155;
+        --muted: #64748b;
+        --card: #ffffff;
+        --border: #e2e8f0;
+        --brand: #172554;
+        --accent: #3b82f6;
+        --heading: #172554;
+        --code-bg: #eef0f7;
+        --shadow: 0 4px 14px rgba(23, 37, 84, 0.08);
+    }
+    @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+            --bg: #0f172a;
+            --text: #cbd5e1;
+            --muted: #94a3b8;
+            --card: #1e293b;
+            --border: #334155;
+            --heading: #bfdbfe;
+            --code-bg: #0b1220;
+            --shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+        }
+    }
+    :root[data-theme="dark"] {
+        --bg: #0f172a;
+        --text: #cbd5e1;
+        --muted: #94a3b8;
+        --card: #1e293b;
+        --border: #334155;
+        --heading: #bfdbfe;
+        --code-bg: #0b1220;
+        --shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        text-align: center;
+    }
+
+    /* ---------- NAV ---------- */
+    nav {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--brand);
+        padding: 12px 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 6px 22px;
+    }
+    nav a {
+        color: #dbeafe;
+        text-decoration: none;
+        font-size: 0.95rem;
+        padding: 4px 2px;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.2s, color 0.2s;
+    }
+    nav a:hover { color: #fff; border-color: var(--accent); }
+
+    /* ---------- TITLE / HERO ---------- */
+    header {
+        background: linear-gradient(135deg, #172554 0%, #1e3a8a 100%);
+        color: #fff;
+        padding: 90px 20px 100px;
+    }
+    .badge {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        padding: 6px 16px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+        margin-bottom: 22px;
+    }
+    header h1 {
+        font-size: clamp(2.2rem, 6vw, 3.6rem);
+        margin: 0 0 16px;
+        line-height: 1.15;
+    }
+    header p {
+        max-width: 620px;
+        margin: 0 auto 32px;
+        font-size: 1.1rem;
+        color: #dbeafe;
+    }
+    .btn {
+        display: inline-block;
+        padding: 12px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        margin: 6px;<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Project</title>
+<style>
+    :root {
+        --bg: #f4f4f9;
         --text: #333;
         --card: #ffffff;
         --brand: #172554;
