@@ -2,7 +2,6 @@
 
 A responsive, single-page personal portfolio for a computer science student, built with pure HTML and CSS plus a little JavaScript.
 
-**Live site:** `https://your-username.github.io/portfolio-site/` _(replace after deploying)_
 
 ## Overview
 
