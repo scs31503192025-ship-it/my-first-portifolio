@@ -1,640 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Mary Atieno Odhiambo | Portfolio</title>
-
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
-:root {
-    --primary: #2563eb;
-    --dark: #101b3b;
-    --light: #f5f8ff;
-    --text: #334155;
-    --muted: #64748b;
-    --white: #ffffff;
-}
-
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: var(--light);
-    color: var(--text);
-    line-height: 1.7;
-}
-
-/* NAVIGATION */
-
-nav {
-    background: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 8%;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.06);
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: var(--primary);
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 28px;
-}
-
-nav ul a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 600;
-    font-size: 14px;
-}
-
-nav ul a:hover {
-    color: var(--primary);
-}
-
-/* HERO SECTION */
-
-.hero {
-    min-height: 570px;
-    background: linear-gradient(120deg, #101b3b, #1e40af);
-    display: flex;
-    align-items: center;
-    padding: 80px 10%;
-    color: white;
-}
-
-.hero-content {
-    max-width: 750px;
-}
-
-.hero-tag {
-    display: inline-block;
-    background: rgba(255,255,255,0.12);
-    padding: 8px 18px;
-    border-radius: 30px;
-    margin-bottom: 25px;
-    color: #bfdbfe;
-}
-
-.hero h1 {
-    font-size: clamp(36px, 6vw, 60px);
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.hero h1 span {
-    color: #60a5fa;
-}
-
-.hero p {
-    font-size: 17px;
-    color: #dbeafe;
-    max-width: 600px;
-    margin-bottom: 30px;
-}
-
-.button {
-    display: inline-block;
-    padding: 13px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 5px;
-    transition: 0.3s;
-}
-
-.button:hover {
-    transform: translateY(-4px);
-}
-
-.primary-btn {
-    background: #3b82f6;
-    color: white;
-}
-
-.secondary-btn {
-    border: 1px solid white;
-    color: white;
-}
-
-/* GENERAL SECTIONS */
-
-section {
-    padding: 85px 9%;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 45px;
-}
-
-.section-title h2 {
-    font-size: 32px;
-    color: var(--dark);
-    margin-bottom: 10px;
-}
-
-.section-title p {
-    color: var(--muted);
-}
-
-.line {
-    width: 60px;
-    height: 4px;
-    background: var(--primary);
-    margin: 12px auto;
-    border-radius: 10px;
-}
-
-/* OVERVIEW */
-
-.about {
-    background: white;
-}
-
-.about-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 45px;
-    align-items: center;
-}
-
-.about-text h3 {
-    font-size: 25px;
-    color: var(--dark);
-    margin-bottom: 18px;
-}
-
-.about-text p {
-    color: var(--muted);
-    margin-bottom: 15px;
-}
-
-.about-card {
-    background: linear-gradient(145deg,#eff6ff,#dbeafe);
-    padding: 45px 30px;
-    border-radius: 20px;
-    text-align: center;
-    border: 1px solid #bfdbfe;
-}
-
-.about-card .symbol {
-    font-size: 65px;
-    margin-bottom: 15px;
-}
-
-.about-card h3 {
-    color: var(--dark);
-    font-size: 23px;
-}
-
-.about-card p {
-    color: var(--muted);
-    margin-top: 10px;
-}
-
-/* FEATURES */
-
-.features {
-    background: #f5f8ff;
-}
-
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-    gap: 25px;
-}
-
-.feature-card {
-    background: white;
-    padding: 32px 25px;
-    border-radius: 16px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    transition: 0.3s;
-    border: 1px solid #e5eaf5;
-}
-
-.feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(37,99,235,0.12);
-}
-
-.feature-icon {
-    width: 58px;
-    height: 58px;
-    background: #eff6ff;
-    border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.feature-card h3 {
-    color: var(--dark);
-    margin-bottom: 12px;
-}
-
-.feature-card p {
-    color: var(--muted);
-    font-size: 14px;
-}
-
-/* SKILLS */
-
-.skills {
-    background: white;
-}
-
-.skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
-
-.skill {
-    background: #eff6ff;
-    color: #1d4ed8;
-    padding: 14px 25px;
-    border-radius: 10px;
-    font-weight: 600;
-    border: 1px solid #dbeafe;
-}
-
-/* PROJECTS */
-
-.projects {
-    background: #f5f8ff;
-}
-
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-    gap: 25px;
-}
-
-.project-card {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid #e2e8f0;
-}
-
-.project-card h3 {
-    color: var(--dark);
-    margin-bottom: 12px;
-}
-
-.project-card p {
-    color: var(--muted);
-}
-
-/* FUTURE GOALS */
-
-.goals {
-    background: white;
-}
-
-.goal-box {
-    max-width: 750px;
-    margin: auto;
-    background: #eff6ff;
-    border-left: 5px solid var(--primary);
-    padding: 30px;
-    border-radius: 12px;
-}
-
-.goal-box p {
-    color: var(--muted);
-}
-
-/* FOOTER */
-
-footer {
-    background: #101b3b;
-    color: white;
-    text-align: center;
-    padding: 35px 20px;
-}
-
-footer p {
-    color: #bfdbfe;
-    margin: 5px;
-}
-
-@media(max-width:750px) {
-    nav {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    nav ul {
-        gap: 14px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero {
-        padding: 75px 7%;
-        min-height: 500px;
-    }
-
-    .about-container {
-        grid-template-columns: 1fr;
-    }
-
-    section {
-        padding: 65px 7%;
-    }
-}
-</style>
-</head>
-
-<body>
-
-<!-- NAVIGATION -->
-
-<nav>
-    <div class="logo">Mary.dev</div>
-
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#overview">About</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-    </ul>
-</nav>
-
-<!-- TITLE / HERO -->
-
-<header class="hero" id="home">
-    <div class="hero-content">
-
-        <div class="hero-tag">
-            Computer Science Student | 2026
-        </div>
-
-        <h1>
-            Hello, I'm <span>Mary Atieno Odhiambo</span>
-        </h1>
-
-        <p>
-            Welcome to my personal portfolio. I am passionate
-            about technology, programming, creativity and
-            solving problems through innovative digital solutions.
-            Explore my skills, projects and learning journey.
-        </p>
-
-        <a href="#projects" class="button primary-btn">
-            Explore My Work
-        </a>
-
-        <a href="#overview" class="button secondary-btn">
-            Discover More
-        </a>
-
-    </div>
-</header>
-
-<!-- OVERVIEW -->
-
-<section class="about" id="overview">
-
-    <div class="section-title">
-        <h2>About Me</h2>
-        <div class="line"></div>
-        <p>Getting to know my academic and professional journey</p>
-    </div>
-
-    <div class="about-container">
-
-        <div class="about-text">
-
-            <h3>My Journey in Technology</h3>
-
-            <p>
-                I am a Bachelor of Science in Computer Science
-                student with an interest in programming,
-                software development and modern technology.
-            </p>
-
-            <p>
-                My academic journey allows me to explore
-                different areas of computing, develop
-                problem-solving abilities and gain practical
-                programming experience.
-            </p>
-
-            <p>
-                This portfolio serves as a platform to present
-                my academic achievements, technical skills,
-                personal projects and continuous development
-                as an aspiring technology professional.
-            </p>
-
-        </div>
-
-        <div class="about-card">
-            <div class="symbol">💻</div>
-            <h3>Technology & Innovation</h3>
-            <p>
-                Learning, creating and developing solutions
-                through technology.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- FEATURES -->
-
-<section class="features" id="features">
-
-    <div class="section-title">
-        <h2>What My Portfolio Offers</h2>
-        <div class="line"></div>
-        <p>Explore the main features of my personal portfolio</p>
-    </div>
-
-    <div class="feature-grid">
-
-        <div class="feature-card">
-            <div class="feature-icon">👩‍💻</div>
-            <h3>Personal Introduction</h3>
-            <p>
-                Learn about my background, interests,
-                academic journey and passion for technology.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">⚙️</div>
-            <h3>Technical Skills</h3>
-            <p>
-                Explore my developing knowledge of
-                programming languages and computer technologies.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">📁</div>
-            <h3>Project Showcase</h3>
-            <p>
-                Discover my academic assignments,
-                programming exercises and practical projects.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">🎓</div>
-            <h3>Education</h3>
-            <p>
-                Discover my educational background
-                and progress in Computer Science.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">📱</div>
-            <h3>Responsive Layout</h3>
-            <p>
-                Enjoy a website designed to adapt to
-                mobile phones, tablets and computers.
-            </p>
-        </div>
-
-        <div class="feature-card">
-            <div class="feature-icon">🚀</div>
-            <h3>Future Development</h3>
-            <p>
-                Follow my growth as I develop new skills
-                and build more technology projects.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section class="skills" id="skills">
-
-    <div class="section-title">
-        <h2>My Technical Interests</h2>
-        <div class="line"></div>
-        <p>Areas I am learning and developing</p>
-    </div>
-
-    <div class="skill-list">
-        <div class="skill">HTML5</div>
-        <div class="skill">CSS3</div>
-        <div class="skill">C++</div>
-        <div class="skill">Java</div>
-        <div class="skill">Python</div>
-        <div class="skill">GitHub</div>
-        <div class="skill">Web Development</div>
-        <div class="skill">Problem Solving</div>
-    </div>
-
-</section>
-
-<!-- PROJECTS -->
-
-<section class="projects" id="projects">
-
-    <div class="section-title">
-        <h2>My Projects</h2>
-        <div class="line"></div>
-        <p>A collection of my learning and development work</p>
-    </div>
-
-    <div class="project-grid">
-
-        <div class="project-card">
-            <h3>Personal Portfolio</h3>
-            <p>
-                A responsive website developed using
-                HTML and CSS to showcase my profile,
-                skills and academic journey.
-            </p>
-        </div>
-
-        <div class="project-card">
-            <h3>Programming Exercises</h3>
-            <p>
-                Practical programming exercises that
-                demonstrate my understanding of
-                programming concepts and logic.
-            </p>
-        </div>
-
-        <div class="project-card">
-            <h3>Academic Projects</h3>
-            <p>
-                University coursework and practical
-                projects completed as part of my
-                Computer Science studies.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- FUTURE GOALS -->
-
-<section class="goals">
-
-    <div class="section-title">
-        <h2>My Future Goals</h2>
-        <div class="line"></div>
-        <p>Building knowledge and growing through technology</p>
-    </div>
-
-    <div class="goal-box">
-        <p>
-            My goal is to continue improving my programming
-            abilities, explore software development,
-            build meaningful applications and gain practical
-            experience. I aim to use my Computer Science
-            knowledge to develop creative and useful
-            technology solutions.
-        </p>
-    </div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-    <h3>Mary Atieno Odhiambo</h3>
-    <p>Computer Science Student | Aspiring Developer</p>
-    <p>Learning Today, Building Tomorrow.</p>
-    <p>© 2026 My Personal Portfolio. All Rights Reserved.</p>
-</footer>
-
-</body>
-</html>
-
-   
-                
+# Mary's Portfolio
+
+A responsive, single-page personal portfolio for a computer science student, built with pure HTML and CSS plus a little JavaScript.
+
+**Live site:** `https://your-username.github.io/portfolio-site/` _(replace after deploying)_
+
+## Overview
+
+This site introduces who I am, what I can do and what I have built, and gives visitors an easy way to get in touch. It was designed mobile first, so it looks good on a phone and scales up to a wide desktop screen.
+
+The project meets a set of technical requirements: organised files, Git history from the start, semantic HTML, a form with varied field types, Grid, Flexbox and positioning in CSS, transforms, an animation, a custom font and a README.
+
+## Features
+
+- **Responsive layout** that works from small phones to large desktops
+- **Sticky navigation** on larger screens, with smooth scrolling and an animated underline
+- **Hero section** with a floating avatar, a rotating ring and staggered fade-in text
+- **About, Skills and Projects sections** using cards, chips and an auto-fitting grid
+- **Contact form** with many field types and built-in browser validation
+- **Live form helpers** (JavaScript): character counter, timeline slider value and a minimum date
+- **Accessibility**: skip link, visible focus styles, labelled form fields, alt text, AA colour contrast and `prefers-reduced-motion` support
+- **Back-to-top button** fixed to the corner of the screen
+
+## Structure
+
+```
+portfolio-site/
+├── index.html              # Page content (semantic HTML)
+├── README.md
+├── .gitignore
+├── css/
+│   └── style.css           # All styles in labelled sections: tokens, layout, components, animations
+├── js/
+│   └── main.js             # Form helpers and footer year
+└── images/
+    ├── favicon.svg
+    ├── profile-placeholder.svg
+    ├── project-planner.svg
+    ├── project-visualizer.svg
+    └── project-notes.svg
+```
+
+### Where each requirement lives
+
+| Requirement | Where |
+| --- | --- |
+| Images and favicon in their own folder | `images/` |
+| Semantic HTML (`header`, `nav`, `main`, `section`, `article`, `aside`, `figure`, `footer`, `form`, `fieldset`) | `index.html` |
+| Form with different fields and attributes | `#contact-form` in `index.html` |
+| At least 2 transformations | `css/style.css`: `scaleX`, `translateY`, `rotate`, `scale` |
+| At least 1 animation | `css/style.css`: `float`, `spin`, `fade-up`, `draw-line` |
+| Grid | `css/style.css`: hero, about, skills, projects, contact, form rows |
+| Flexbox | `css/style.css`: header, nav, footer, buttons, chips |
+| Positioning | `sticky` header, `relative` + `absolute` badges and tags, `fixed` back-to-top button |
+| Custom font | Google Fonts: Fraunces (headings) and DM Sans (body) |
+| Responsive from day one | Mobile-first CSS with `min-width` media queries |
+
+### Form fields used
+
+`text` (with `required`, `minlength`, `maxlength`, `autocomplete`, `placeholder`), `email`, `tel` (with `pattern` and `title`), `url`, a `readonly` text field, `select` with `optgroup`, `radio` group, `date`, `range` with `output`, `textarea`, `checkbox` (`required`), `hidden`, plus `submit` and `reset` buttons.
+
+## Design
+
+- **Palette** (from [coolors.co](https://coolors.co/b59539)): Ink `#0D1B2A`, Navy `#1B263B`, Slate `#415A77`, Mist `#778DA9`, Gold `#B59539`, Paper `#F6F5F0`. A darker gold `#7D6620` is used for text on light backgrounds so contrast stays high.
+- **Typography**: Fraunces for headings, DM Sans for body text, with system font fallbacks.
+- **Spacing**: a small scale of CSS variables (`--space-1` to `--space-6`) keeps margins and padding consistent.
+
+## Getting started
+
+No build step is needed.
+
+```bash
+git clone https://github.com/your-username/portfolio-site.git
+cd portfolio-site
+# open index.html in your browser, or use a local server:
+python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000`.
+
+## Customising
+
+1. Edit text in `index.html` (hero, about, skills and projects). Look for the HTML comments that say what to replace.
+2. Replace the SVGs in `images/` with your own photo and project screenshots, and update the `alt` text.
+3. Update the GitHub and LinkedIn links in the footer and the project cards.
+4. Change colours or fonts in the `:root` block of `css/style.css`.
+
+## Deployment
+
+### GitHub Pages
+
+```bash
+git branch -M main
+git remote add origin https://github.com/your-username/portfolio-site.git
+git push -u origin main
+```
+
+Then open the repository on GitHub: **Settings → Pages → Build and deployment**, choose **Deploy from a branch**, select `main` and `/ (root)`, and save. The site goes live at `https://your-username.github.io/portfolio-site/` after a minute or two.
+
+### Netlify
+
+- **Drag and drop:** drop the project folder onto the Netlify dashboard, or
+- **From Git:** connect the GitHub repository. Leave the build command empty and set the publish directory to `.`
+
+## Making the form work
+
+On a static site the form cannot send email by itself. At the moment `main.js` shows a thank-you message instead. To receive real messages:
+
+- **Netlify:** the form already has `data-netlify="true"` and a hidden `form-name` field. Remove the `event.preventDefault()` submit handler in `js/main.js` (or send the data with `fetch`) and submissions will appear in the Netlify dashboard.
+- **Formspree or similar:** set the form's `action` to the endpoint they give you.
+
+## Future improvements
+
+- Connect the contact form to a real form service
+- Add a dark mode toggle using the existing CSS variables
+- Replace placeholder projects with real case studies and live demo links
+- Add a downloadable CV and a short "Experience" timeline
+- Add a mobile hamburger menu
+- Fade sections in on scroll with `IntersectionObserver`
+- Add a blog or notes section for what I learn in my courses
+- Add meta tags for social sharing (Open Graph image)
+- Run an accessibility and performance audit with Lighthouse
+
+## Credits
+
+- Fonts: [Fraunces](https://fonts.google.com/specimen/Fraunces) and [DM Sans](https://fonts.google.com/specimen/DM+Sans) via Google Fonts
+- Colour palette: [Coolors](https://coolors.co/b59539)
+- Illustrations: hand-written SVGs included in `images/`
